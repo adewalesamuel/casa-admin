@@ -13,7 +13,7 @@ export function FeatureProductForm(props) {
                             {
                                 props.features.map((feature, index) => {
                                     return (<option key={index} value={feature.id ?? ''}>
-                                                {feature.name}
+                                                {feature.nom}
                                             </option>)
                                 })
                             }
@@ -30,7 +30,7 @@ export function FeatureProductForm(props) {
                             {
                                 props.products.map((product, index) => {
                                     return (<option key={index} value={product.id ?? ''}>
-                                                {product.name}
+                                                {product.nom}
                                             </option>)
                                 })
                             }
@@ -43,7 +43,7 @@ export function FeatureProductForm(props) {
                         <input className='form-control' type='number' id='quantite' name='quantite' 
                         placeholder='quantite' value={props.useFeatureProduct.quantite ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useFeatureProduct.setQuantite(e.target.value) ?? null} required/>
+                            props.useFeatureProduct.setQuantite(e.target.value) ?? null} />
                     </div>
                 </div>
 				

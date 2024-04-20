@@ -9,7 +9,7 @@ export function CommentForm(props) {
                         <input className='form-control' type='text' id='description' name='description' 
                         placeholder='description' value={props.useComment.description ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useComment.setDescription(e.target.value) ?? null} required/>
+                            props.useComment.setDescription(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function CommentForm(props) {
                         <input className='form-control' type='number' id='score' name='score' 
                         placeholder='score' value={props.useComment.score ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useComment.setScore(e.target.value) ?? null} required/>
+                            props.useComment.setScore(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -31,7 +31,7 @@ export function CommentForm(props) {
                             {
                                 props.products.map((product, index) => {
                                     return (<option key={index} value={product.id ?? ''}>
-                                                {product.name}
+                                                {product.nom}
                                             </option>)
                                 })
                             }
@@ -48,7 +48,7 @@ export function CommentForm(props) {
                             {
                                 props.users.map((user, index) => {
                                     return (<option key={index} value={user.id ?? ''}>
-                                                {user.name}
+                                                {user.nom}
                                             </option>)
                                 })
                             }

@@ -9,7 +9,7 @@ export function CityForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useCity.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCity.setNom(e.target.value) ?? null} required/>
+                            props.useCity.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function CityForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useCity.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCity.setSlug(e.target.value) ?? null} required/>
+                            props.useCity.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -31,7 +31,7 @@ export function CityForm(props) {
                             {
                                 props.regions.map((region, index) => {
                                     return (<option key={index} value={region.id ?? ''}>
-                                                {region.name}
+                                                {region.nom}
                                             </option>)
                                 })
                             }

@@ -9,7 +9,7 @@ export function PermissionForm(props) {
                         <input className='form-control' type='text' id='name' name='name' 
                         placeholder='name' value={props.usePermission.name ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.usePermission.setName(e.target.value) ?? null} required/>
+                            props.usePermission.setName(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function PermissionForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.usePermission.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.usePermission.setSlug(e.target.value) ?? null} required/>
+                            props.usePermission.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				

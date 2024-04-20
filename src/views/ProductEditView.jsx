@@ -12,8 +12,8 @@ export function ProductEditView() {
 
     const useProduct = Hooks.useProduct();
 
-    const [categories, setCategorys] = useState([]);
-	const [municipalities, setMunicipalitys] = useState([]);
+    const [categories, setCategories] = useState([]);
+	const [municipalities, setMunicipalities] = useState([]);
 	const [users, setUsers] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
@@ -46,11 +46,11 @@ export function ProductEditView() {
             
             const { categories } = await Services.CategoryService
 			.getAll(abortController.signal);
-			setCategorys(categories);
+			setCategories(categories);
 
 			const { municipalities } = await Services.MunicipalityService
 			.getAll(abortController.signal);
-			setMunicipalitys(municipalities);
+			setMunicipalities(municipalities);
 
 			const { users } = await Services.UserService
 			.getAll(abortController.signal);
@@ -76,8 +76,8 @@ export function ProductEditView() {
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.ProductForm useProduct={useProduct}
-            categories={categories} setCategorys={setCategorys}
-			municipalities={municipalities} setMunicipalitys={setMunicipalitys}
+            categories={categories} setCategories={setCategories}
+			municipalities={municipalities} setMunicipalities={setMunicipalities}
 			users={users} setUsers={setUsers}
 			isDisabled={useProduct.isDisabled} handleFormSubmit={handleFormSubmit}/>
         </>

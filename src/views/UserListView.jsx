@@ -12,7 +12,6 @@ export function UserListView() {
     const tableAttributes = {
         'nom': {},
 		'email': {},
-		'password': {},
 		'profile_img_url': {},
 		'genre': {},
 		'adresse': {},

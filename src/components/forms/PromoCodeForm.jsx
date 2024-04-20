@@ -13,7 +13,7 @@ export function PromoCodeForm(props) {
                             {
                                 props.codes.map((code, index) => {
                                     return (<option key={index} value={code.id ?? ''}>
-                                                {code.name}
+                                                {code.nom}
                                             </option>)
                                 })
                             }
@@ -26,7 +26,7 @@ export function PromoCodeForm(props) {
                         <input className='form-control' type='date' id='expiration_date' name='expiration_date' 
                         placeholder='expiration_date' value={props.usePromoCode.expiration_date ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.usePromoCode.setExpiration_date(e.target.value) ?? null} required/>
+                            props.usePromoCode.setExpiration_date(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -52,7 +52,7 @@ export function PromoCodeForm(props) {
                             {
                                 props.users.map((user, index) => {
                                     return (<option key={index} value={user.id ?? ''}>
-                                                {user.name}
+                                                {user.nom}
                                             </option>)
                                 })
                             }

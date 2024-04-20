@@ -9,7 +9,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useCategory.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setNom(e.target.value) ?? null} required/>
+                            props.useCategory.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useCategory.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setSlug(e.target.value) ?? null} required/>
+                            props.useCategory.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -27,7 +27,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='text' id='description' name='description' 
                         placeholder='description' value={props.useCategory.description ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setDescription(e.target.value) ?? null} required/>
+                            props.useCategory.setDescription(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -36,7 +36,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='text' id='icon_img_url' name='icon_img_url' 
                         placeholder='icon_img_url' value={props.useCategory.icon_img_url ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setIcon_img_url(e.target.value) ?? null} required/>
+                            props.useCategory.setIcon_img_url(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -45,7 +45,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='text' id='display_img_url' name='display_img_url' 
                         placeholder='display_img_url' value={props.useCategory.display_img_url ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setDisplay_img_url(e.target.value) ?? null} required/>
+                            props.useCategory.setDisplay_img_url(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -54,7 +54,7 @@ export function CategoryForm(props) {
                         <input className='form-control' type='number' id='quantite' name='quantite' 
                         placeholder='quantite' value={props.useCategory.quantite ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setQuantite(e.target.value) ?? null} required/>
+                            props.useCategory.setQuantite(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -67,7 +67,7 @@ export function CategoryForm(props) {
                             {
                                 props.categories.map((category, index) => {
                                     return (<option key={index} value={category.id ?? ''}>
-                                                {category.name}
+                                                {category.nom}
                                             </option>)
                                 })
                             }

@@ -12,7 +12,6 @@ export function ProductListView() {
     const tableAttributes = {
         'nom': {},
 		'slug': {},
-		'description': {},
 		'prix': {},
 		'type_paiement': {},
 		'type': {},

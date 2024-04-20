@@ -9,7 +9,7 @@ export function RegionForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useRegion.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useRegion.setNom(e.target.value) ?? null} required/>
+                            props.useRegion.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function RegionForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useRegion.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useRegion.setSlug(e.target.value) ?? null} required/>
+                            props.useRegion.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				

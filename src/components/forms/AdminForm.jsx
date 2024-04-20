@@ -9,7 +9,7 @@ export function AdminForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useAdmin.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useAdmin.setNom(e.target.value) ?? null} required/>
+                            props.useAdmin.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function AdminForm(props) {
                         <input className='form-control' type='text' id='email' name='email' 
                         placeholder='email' value={props.useAdmin.email ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useAdmin.setEmail(e.target.value) ?? null} required/>
+                            props.useAdmin.setEmail(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -27,7 +27,7 @@ export function AdminForm(props) {
                         <input className='form-control' type='text' id='password' name='password' 
                         placeholder='password' value={props.useAdmin.password ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useAdmin.setPassword(e.target.value) ?? null} required/>
+                            props.useAdmin.setPassword(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -36,7 +36,7 @@ export function AdminForm(props) {
                         <input className='form-control' type='text' id='profile_img_url' name='profile_img_url' 
                         placeholder='profile_img_url' value={props.useAdmin.profile_img_url ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useAdmin.setProfile_img_url(e.target.value) ?? null} required/>
+                            props.useAdmin.setProfile_img_url(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -49,7 +49,7 @@ export function AdminForm(props) {
                             {
                                 props.roles.map((role, index) => {
                                     return (<option key={index} value={role.id ?? ''}>
-                                                {role.name}
+                                                {role.nom}
                                             </option>)
                                 })
                             }

@@ -9,7 +9,7 @@ export function MunicipalityForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useMunicipality.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useMunicipality.setNom(e.target.value) ?? null} required/>
+                            props.useMunicipality.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function MunicipalityForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useMunicipality.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useMunicipality.setSlug(e.target.value) ?? null} required/>
+                            props.useMunicipality.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -31,7 +31,7 @@ export function MunicipalityForm(props) {
                             {
                                 props.cities.map((city, index) => {
                                     return (<option key={index} value={city.id ?? ''}>
-                                                {city.name}
+                                                {city.nom}
                                             </option>)
                                 })
                             }

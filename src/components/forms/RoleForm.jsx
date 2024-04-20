@@ -9,7 +9,7 @@ export function RoleForm(props) {
                         <input className='form-control' type='text' id='name' name='name' 
                         placeholder='name' value={props.useRole.name ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useRole.setName(e.target.value) ?? null} required/>
+                            props.useRole.setName(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function RoleForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useRole.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useRole.setSlug(e.target.value) ?? null} required/>
+                            props.useRole.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -27,7 +27,7 @@ export function RoleForm(props) {
                         <input className='form-control' type='text' id='permissions' name='permissions' 
                         placeholder='permissions' value={props.useRole.permissions ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useRole.setPermissions(e.target.value) ?? null} required/>
+                            props.useRole.setPermissions(e.target.value) ?? null} />
                     </div>
                 </div>
 				

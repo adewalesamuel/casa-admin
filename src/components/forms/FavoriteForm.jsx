@@ -13,7 +13,7 @@ export function FavoriteForm(props) {
                             {
                                 props.products.map((product, index) => {
                                     return (<option key={index} value={product.id ?? ''}>
-                                                {product.name}
+                                                {product.nom}
                                             </option>)
                                 })
                             }
@@ -30,7 +30,7 @@ export function FavoriteForm(props) {
                             {
                                 props.users.map((user, index) => {
                                     return (<option key={index} value={user.id ?? ''}>
-                                                {user.name}
+                                                {user.nom}
                                             </option>)
                                 })
                             }

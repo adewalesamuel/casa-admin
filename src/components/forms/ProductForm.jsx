@@ -9,7 +9,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder='nom' value={props.useProduct.nom ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setNom(e.target.value) ?? null} required/>
+                            props.useProduct.setNom(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -18,7 +18,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='slug' name='slug' 
                         placeholder='slug' value={props.useProduct.slug ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setSlug(e.target.value) ?? null} required/>
+                            props.useProduct.setSlug(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -27,7 +27,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='description' name='description' 
                         placeholder='description' value={props.useProduct.description ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setDescription(e.target.value) ?? null} required/>
+                            props.useProduct.setDescription(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -36,7 +36,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='prix' name='prix' 
                         placeholder='prix' value={props.useProduct.prix ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setPrix(e.target.value) ?? null} required/>
+                            props.useProduct.setPrix(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -71,7 +71,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='display_img_url_list' name='display_img_url_list' 
                         placeholder='display_img_url_list' value={props.useProduct.display_img_url_list ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setDisplay_img_url_list(e.target.value) ?? null} required/>
+                            props.useProduct.setDisplay_img_url_list(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -80,7 +80,7 @@ export function ProductForm(props) {
                         <input className='form-control' type='text' id='images_url_list' name='images_url_list' 
                         placeholder='images_url_list' value={props.useProduct.images_url_list ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
-                            props.useProduct.setImages_url_list(e.target.value) ?? null} required/>
+                            props.useProduct.setImages_url_list(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>
@@ -93,7 +93,7 @@ export function ProductForm(props) {
                             {
                                 props.categories.map((category, index) => {
                                     return (<option key={index} value={category.id ?? ''}>
-                                                {category.name}
+                                                {category.nom}
                                             </option>)
                                 })
                             }
@@ -110,7 +110,7 @@ export function ProductForm(props) {
                             {
                                 props.municipalities.map((municipality, index) => {
                                     return (<option key={index} value={municipality.id ?? ''}>
-                                                {municipality.name}
+                                                {municipality.nom}
                                             </option>)
                                 })
                             }
@@ -127,7 +127,7 @@ export function ProductForm(props) {
                             {
                                 props.users.map((user, index) => {
                                     return (<option key={index} value={user.id ?? ''}>
-                                                {user.name}
+                                                {user.nom}
                                             </option>)
                                 })
                             }
