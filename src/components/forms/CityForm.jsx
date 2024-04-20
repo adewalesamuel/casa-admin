@@ -26,7 +26,7 @@ export function CityForm(props) {
                         <label htmlFor='region_id'>region_id</label>
                         <select className='select2 form-control' id='region_id' name='region_id' 
                         value={props.useCity.region_id ?? ''} disabled={props.isDisabled} 
-                        onChange={ e => props.useCity.setRegion(e.target.value) ?? null}>
+                        onChange={ e => props.useCity.setRegion_id(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
                                 props.regions.map((region, index) => {

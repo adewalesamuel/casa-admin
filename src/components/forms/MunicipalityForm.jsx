@@ -26,7 +26,7 @@ export function MunicipalityForm(props) {
                         <label htmlFor='city_id'>city_id</label>
                         <select className='select2 form-control' id='city_id' name='city_id' 
                         value={props.useMunicipality.city_id ?? ''} disabled={props.isDisabled} 
-                        onChange={ e => props.useMunicipality.setCity(e.target.value) ?? null}>
+                        onChange={ e => props.useMunicipality.setCity_id(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
                                 props.cities.map((city, index) => {
