@@ -12,8 +12,8 @@ export function ProductCreateView() {
 
     const useProduct = Hooks.useProduct();
 
-    const [categorys, setCategorys] = useState([]);
-	const [municipalitys, setMunicipalitys] = useState([]);
+    const [categories, setCategorys] = useState([]);
+	const [municipalities, setMunicipalitys] = useState([]);
 	const [users, setUsers] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
@@ -43,13 +43,13 @@ export function ProductCreateView() {
         useProduct.setIsDisabled(true);
 
         try {
-            const { categorys } = await Services.CategoryService
+            const { categories } = await Services.CategoryService
 			.getAll(abortController.signal);
-			setCategorys(categorys);
+			setCategorys(categories);
 
-			const { municipalitys } = await Services.MunicipalityService
+			const { municipalities } = await Services.MunicipalityService
 			.getAll(abortController.signal);
-			setMunicipalitys(municipalitys);
+			setMunicipalitys(municipalities);
 
 			const { users } = await Services.UserService
 			.getAll(abortController.signal);
@@ -75,8 +75,8 @@ export function ProductCreateView() {
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.ProductForm useProduct={useProduct}
-            categorys={categorys} setCategorys={setCategorys}
-			municipalitys={municipalitys} setMunicipalitys={setMunicipalitys}
+            categories={categories} setCategorys={setCategorys}
+			municipalities={municipalities} setMunicipalitys={setMunicipalitys}
 			users={users} setUsers={setUsers}
 			isDisabled={useProduct.isDisabled} handleFormSubmit={handleFormSubmit}/>
         </>

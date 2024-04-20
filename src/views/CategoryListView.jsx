@@ -1,9 +1,9 @@
 //'use client'
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
-import { Utils } from '../utils';
+
 
 export function CategoryListView() {
     let abortController = new AbortController();
@@ -23,26 +23,27 @@ export function CategoryListView() {
     const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
+    const [searchParams,] = useSearchParams();
 
-    const [categorys, setCategorys] = useState([]);
-    const [page, ] = useState(1);
-    const [, setPageLength] = useState(1);
+    const [categories, setCategorys] = useState([]);
+    const [page, setPage] = useState(1);
+    const [pageLength, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/categorys/${data.id}/edit`);
+        navigate(`/categories/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, category) => {
         e.preventDefault();
 
         if (confirm('Voulez vous vraiment supprimer ce category')) {
-            const categorysCopy = [...categorys];
-            const index = categorysCopy.findIndex(categoryItem => 
+            const categoriesCopy = [...categories];
+            const index = categoriesCopy.findIndex(categoryItem => 
                 categoryItem.id === category.id);
 
-            categorysCopy.splice(index, 1);
-            setCategorys(categorysCopy);
+            categoriesCopy.splice(index, 1);
+            setCategorys(categoriesCopy);
 
             await CategoryService.destroy(category.id, 
                 abortController.signal);
@@ -51,11 +52,11 @@ export function CategoryListView() {
 
     const init = useCallback(async () => {
         try {
-            const {categorys} = await CategoryService.getAll(
+            const {categories} = await CategoryService.getAll(
                 {page: page}, abortController.signal);
 
-            setCategorys(categorys.data);
-            setPageLength(categorys.last_page);
+            setCategorys(categories.data);
+            setPageLength(categories.last_page);
         } catch (error) {
             console.log(error);
         } finally {
@@ -72,16 +73,23 @@ export function CategoryListView() {
         }
     }, [init])
 
+    useEffect(() => {
+        if (searchParams.get('page')) 
+            setPage(parseInt(searchParams.get('page')))
+    }, [searchParams.get('page')])
+
     return (
         <>
             <h6>Liste Categorys</h6>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/categorys/create'>
+                <Link className='btn btn-info' to='/categories/create'>
                     <i className='icon ion-plus'></i> Créer category
                 </Link>
                 <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
                 tableAttributes={tableAttributes} tableActions={tableActions} 
-                tableData={categorys}/>
+                tableData={categories}/>
+ 
+                <Components.Pagination page={page} pageLength={pageLength}/>
             </Components.Loader>
         </>
     )

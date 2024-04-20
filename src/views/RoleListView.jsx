@@ -1,9 +1,9 @@
 //'use client'
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
-import { Utils } from '../utils';
+
 
 export function RoleListView() {
     let abortController = new AbortController();
@@ -19,10 +19,11 @@ export function RoleListView() {
     const tableActions = ['edit', 'delete'];
     
     const navigate = useNavigate();
+    const [searchParams,] = useSearchParams();
 
     const [roles, setRoles] = useState([]);
-    const [page, ] = useState(1);
-    const [, setPageLength] = useState(1);
+    const [page, setPage] = useState(1);
+    const [pageLength, setPageLength] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
     const handleEditClick = (e, data) => {
@@ -68,6 +69,11 @@ export function RoleListView() {
         }
     }, [init])
 
+    useEffect(() => {
+        if (searchParams.get('page')) 
+            setPage(parseInt(searchParams.get('page')))
+    }, [searchParams.get('page')])
+
     return (
         <>
             <h6>Liste Roles</h6>
@@ -78,6 +84,8 @@ export function RoleListView() {
                 <Components.Table controllers={{handleEditClick, handleDeleteClick}} 
                 tableAttributes={tableAttributes} tableActions={tableActions} 
                 tableData={roles}/>
+ 
+                <Components.Pagination page={page} pageLength={pageLength}/>
             </Components.Loader>
         </>
     )

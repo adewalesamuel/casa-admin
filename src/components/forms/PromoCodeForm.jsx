@@ -1,7 +1,7 @@
 //'use client'
 export function PromoCodeForm(props) {
     return (
-        <form onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>

@@ -1,7 +1,7 @@
 //'use client'
 export function CategoryForm(props) {
     return (
-        <form onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
@@ -65,7 +65,7 @@ export function CategoryForm(props) {
                         onChange={ e => props.useCategory.setCategory(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
-                                props.categorys.map((category, index) => {
+                                props.categories.map((category, index) => {
                                     return (<option key={index} value={category.id ?? ''}>
                                                 {category.name}
                                             </option>)

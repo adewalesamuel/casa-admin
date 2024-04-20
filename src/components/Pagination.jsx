@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 export function Pagination(props){
 
     return(
-        <div className="pagination-wrapper">
-            <ul className="pagination pagination-circle mg-b-0">
+        <div className="pagination-wrapper mt-3 d-flex justify-content-end">
+            <ul className="pagination mg-b-0">
                 <li className="page-item">
                     <Link className="page-link" to={`?page=${props.page > 1 ? 
                         props.page - 1 : props.page}`}>

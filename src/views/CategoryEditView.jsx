@@ -12,7 +12,7 @@ export function CategoryEditView() {
 
     const useCategory = Hooks.useCategory();
 
-    const [categorys, setCategorys] = useState([]);
+    const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
 
@@ -42,9 +42,9 @@ export function CategoryEditView() {
         try {
             await useCategory.getCategory(id, abortController.signal);
             
-            const { categorys } = await Services.CategoryService
+            const { categories } = await Services.CategoryService
 			.getAll(abortController.signal);
-			setCategorys(categorys);
+			setCategorys(categories);
 
 			
         } catch (error) {
@@ -66,7 +66,7 @@ export function CategoryEditView() {
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.CategoryForm useCategory={useCategory}
-            categorys={categorys} setCategorys={setCategorys}
+            categories={categories} setCategorys={setCategorys}
 			isDisabled={useCategory.isDisabled} handleFormSubmit={handleFormSubmit}/>
         </>
     )

@@ -1,4 +1,5 @@
 import * as Icons from 'react-feather';
+import { Utils } from '../utils';
 
 export function Table(props) {
     const ACTIONS = {
@@ -6,6 +7,8 @@ export function Table(props) {
         READ: 'read',
         DELETE: 'delete'
     };
+    const {_} = Utils.String;
+
     const {tableAttributes, tableData, tableActions, controllers} = props;
     const {handleEditClick, handleReadClick, handleDeleteClick} = controllers;
         
@@ -33,18 +36,17 @@ export function Table(props) {
     const renderTableHeads = () => {
         const tableHeads = Object.keys(tableAttributes)
         .map((key, index) => {
-            const regEx = new RegExp('[-_]', 'gi')
             return (
                 <th className={`${tableAttributes[key].thClassName ?? ""} 
                 whitespace-no-wrap`}
                 key={index}>
-                    {key.replace(regEx, '').toUpperCase()}
+                    {_(key)}
                 </th>
             )
         })
 
         tableHeads.push(<th key={9999} className="text-center 
-        whitespace-no-wrap">ACTIONS</th>);
+        whitespace-no-wrap">Actions</th>);
 
         return tableHeads;
     }
@@ -90,7 +92,7 @@ export function Table(props) {
         
 
     return (
-        <div className='table-responsive'>
+        <div className='table-responsive bg-white rounded mt-3'>
             <table className="table">
                 <thead>
                     <tr>{renderTableHeads()}</tr>

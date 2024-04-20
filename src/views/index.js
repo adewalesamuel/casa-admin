@@ -40,6 +40,8 @@ import { FavoriteEditView } from './FavoriteEditView';
 import { PromoCodeListView } from './PromoCodeListView';
 import { PromoCodeCreateView } from './PromoCodeCreateView';
 import { PromoCodeEditView } from './PromoCodeEditView';
+import { DashboardView } from './DashboardView';
+import { LoginView } from './LoginView';
 
 export const Views = {
     PermissionListView,
@@ -84,5 +86,7 @@ export const Views = {
 	PromoCodeListView,
 	PromoCodeCreateView,
 	PromoCodeEditView,
+	DashboardView,
+	LoginView,
 	
 }

@@ -12,6 +12,14 @@ import { FeatureProductForm } from './forms/FeatureProductForm';
 import { CommentForm } from './forms/CommentForm';
 import { FavoriteForm } from './forms/FavoriteForm';
 import { PromoCodeForm } from './forms/PromoCodeForm';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { MainMenu } from './MainMenu';
+import { Loader } from './Loader';
+import { Spinner } from './Spinner';
+import { Table } from './Table';
+import { ErrorMessages } from './ErrorMessages';
+import { Pagination } from './Pagination';
 
 export const Components = {
     PermissionForm,
@@ -28,5 +36,13 @@ export const Components = {
 	CommentForm,
 	FavoriteForm,
 	PromoCodeForm,
+	Header,
+	Footer,
+	MainMenu,
+	Loader,
+	Spinner,
+	Table,
+	ErrorMessages,
+	Pagination
 	
 }

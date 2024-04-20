@@ -12,7 +12,7 @@ export function MunicipalityCreateView() {
 
     const useMunicipality = Hooks.useMunicipality();
 
-    const [citys, setCitys] = useState([]);
+    const [cities, setCitys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
 
@@ -24,7 +24,7 @@ export function MunicipalityCreateView() {
         try {
             await useMunicipality.createMunicipality(abortController.signal);
 
-            navigate('/municipalitys');
+            navigate('/municipalities');
         } catch (error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;
@@ -41,9 +41,9 @@ export function MunicipalityCreateView() {
         useMunicipality.setIsDisabled(true);
 
         try {
-            const { citys } = await Services.CityService
+            const { cities } = await Services.CityService
 			.getAll(abortController.signal);
-			setCitys(citys);
+			setCitys(cities);
 
 			
         } catch (error) {
@@ -65,7 +65,7 @@ export function MunicipalityCreateView() {
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.MunicipalityForm useMunicipality={useMunicipality}
-            citys={citys} setCitys={setCitys}
+            cities={cities} setCitys={setCitys}
 			isDisabled={useMunicipality.isDisabled} handleFormSubmit={handleFormSubmit}/>
         </>
     )

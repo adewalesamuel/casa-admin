@@ -1,7 +1,7 @@
 //'use client'
 export function MunicipalityForm(props) {
     return (
-        <form onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
@@ -29,7 +29,7 @@ export function MunicipalityForm(props) {
                         onChange={ e => props.useMunicipality.setCity(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
-                                props.citys.map((city, index) => {
+                                props.cities.map((city, index) => {
                                     return (<option key={index} value={city.id ?? ''}>
                                                 {city.name}
                                             </option>)

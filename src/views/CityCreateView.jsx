@@ -24,7 +24,7 @@ export function CityCreateView() {
         try {
             await useCity.createCity(abortController.signal);
 
-            navigate('/citys');
+            navigate('/cities');
         } catch (error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;

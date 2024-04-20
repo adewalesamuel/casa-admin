@@ -1,7 +1,6 @@
 //'use client'
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Services } from '../services';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 
@@ -35,22 +34,6 @@ export function UserCreateView() {
             useUser.setIsDisabled(false);
         }
     }
-
-    const init = useCallback(async () => {
-        useUser.setIsDisabled(true);
-
-        try {
-            
-        } catch (error) {
-            console.log(error);
-        } finally {
-            useUser.setIsDisabled(false);
-        }
-    }, [])
-
-    useEffect(() => {
-        init()
-    }, [init])
 
     return (
         <>

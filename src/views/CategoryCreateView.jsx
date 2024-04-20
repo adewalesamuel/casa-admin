@@ -12,7 +12,7 @@ export function CategoryCreateView() {
 
     const useCategory = Hooks.useCategory();
 
-    const [categorys, setCategorys] = useState([]);
+    const [categories, setCategorys] = useState([]);
 	
     const [errorMessages, setErrorMessages] = useState([]);
 
@@ -24,7 +24,7 @@ export function CategoryCreateView() {
         try {
             await useCategory.createCategory(abortController.signal);
 
-            navigate('/categorys');
+            navigate('/categories');
         } catch (error) {
             if ('message' in error) setErrorMessages([error.message]);
             if (!('messages' in error)) return;
@@ -41,9 +41,9 @@ export function CategoryCreateView() {
         useCategory.setIsDisabled(true);
 
         try {
-            const { categorys } = await Services.CategoryService
+            const { categories } = await Services.CategoryService
 			.getAll(abortController.signal);
-			setCategorys(categorys);
+			setCategorys(categories);
 
 			
         } catch (error) {
@@ -65,7 +65,7 @@ export function CategoryCreateView() {
                 {errorMessages}
             </Components.ErrorMessages>
             <Components.CategoryForm useCategory={useCategory}
-            categorys={categorys} setCategorys={setCategorys}
+            categories={categories} setCategorys={setCategorys}
 			isDisabled={useCategory.isDisabled} handleFormSubmit={handleFormSubmit}/>
         </>
     )

@@ -1,7 +1,7 @@
 //'use client'
 export function ProductForm(props) {
     return (
-        <form onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
@@ -91,7 +91,7 @@ export function ProductForm(props) {
                         onChange={ e => props.useProduct.setCategory(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
-                                props.categorys.map((category, index) => {
+                                props.categories.map((category, index) => {
                                     return (<option key={index} value={category.id ?? ''}>
                                                 {category.name}
                                             </option>)
@@ -108,7 +108,7 @@ export function ProductForm(props) {
                         onChange={ e => props.useProduct.setMunicipality(e.target.value) ?? null}>
                             <option hidden>Choisissez une option</option>
                             {
-                                props.municipalitys.map((municipality, index) => {
+                                props.municipalities.map((municipality, index) => {
                                     return (<option key={index} value={municipality.id ?? ''}>
                                                 {municipality.name}
                                             </option>)
