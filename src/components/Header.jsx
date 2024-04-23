@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Utils } from "../utils";
 import { Services } from "../services";
-import logo from '../assets/images/logo.jpeg';
+import logo from '../assets/images/logo.png';
 import  avatarImg from '../assets/images/users/avatar-1.jpg';
 
 export function Header() {

@@ -1,6 +1,6 @@
 export function ErrorMessages(props) {
     return (
-        <div  className="error-message" style={props.style}>
+        <div  className="error-message col-12 col-md-8 col-xl-6" style={props.style}>
                 <div className={props.className ?? ''}>
                     {props.children instanceof Array ? 
                       props.children.map((item, index) => {

@@ -1,12 +1,17 @@
 //'use client'
+import { Utils } from '../../utils';
+
 export function CommentForm(props) {
+    const {_} = Utils.String;
+
     return (
-        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" 
+        onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='description'>description</label>
-                        <input className='form-control' type='text' id='description' name='description' 
+                        <textarea className='form-control' rows={4}  id='description' name='description' 
                         placeholder='description' value={props.useComment.description ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useComment.setDescription(e.target.value) ?? null} />

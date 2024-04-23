@@ -4,7 +4,7 @@ import { Components } from "../components";
 import { Services } from "../services";
 import { Utils } from "../utils";
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/images/logo.jpeg';
+import logo from '../assets/images/logo.png';
 
 export function LoginView() {
     const abortController = new AbortController();
@@ -55,7 +55,7 @@ export function LoginView() {
                         <div className="col-lg-12">
                             <div className="text-center py-2">
                                 <a href="index.html" className="logo">
-                                    <img src={logo} height="100" alt="logo"/>
+                                    <img src={logo} width={100} alt="logo"/>
                                 </a>
                             </div>
                         </div>

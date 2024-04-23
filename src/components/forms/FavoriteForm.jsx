@@ -1,7 +1,12 @@
 //'use client'
+import { Utils } from '../../utils';
+
 export function FavoriteForm(props) {
+    const {_} = Utils.String;
+
     return (
-        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" onSubmit={props.handleFormSubmit ?? null}>
+        <form className="p-3 col-12 col-md-8 col-xl-6 bg-white rounded" 
+        onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
