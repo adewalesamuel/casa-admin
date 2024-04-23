@@ -15,7 +15,6 @@ export function ProductListView() {
 		'prix': {},
 		'type_paiement': {},
 		'type': {},
-		'display_img_url_list': {},
 		'images_url_list': {},
 		'category_id': {},
 		'municipality_id': {},
