@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Utils } from "../utils";
 import { Services } from "../services";
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.jpeg';
 import  avatarImg from '../assets/images/users/avatar-1.jpg';
 
 export function Header() {
@@ -18,8 +18,8 @@ export function Header() {
         event.preventDefault();
 
         if (confirm('Vous êtes sur le point de vous déconnecter?')) {
-            Utils.Auth.removeSessionToken();
             Services.AuthService.logout(abortController.signal);
+            Utils.Auth.removeSessionToken();
             navigate('/login', {replace:true});
         }
     }
@@ -93,15 +93,15 @@ export function Header() {
                             <img className="rounded-circle header-profile-user" src={userProfileImg}
                                 alt="Header Avatar" />
                             <span className="d-none d-sm-inline-block ml-1">
-                                {Utils.Auth.isLoggedIn() ? `${Utils.Auth.getUser().fullname}`: "Non connecté"}
+                                {Utils.Auth.isLoggedIn() ? `${Utils.Auth.getUser().nom}`: "Non connecté"}
                             </span>
                             <i className="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                         </button>
                         <div className="dropdown-menu dropdown-menu-right" id='dropdownMenu'>
-                           {/* <a className="dropdown-item" href="##">
+                           <Link className="dropdown-item" to={`/admins/${Utils.Auth.getUser().id}/edit`}>
                                 <i className="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> 
                                 Profile
-                            </a>*/}
+                            </Link>
                             <div className="dropdown-divider"></div>
                             <a className="dropdown-item" href="#" onClick={logout}>
                                 <i className="mdi mdi-logout font-size-16 align-middle mr-1"> </i> 

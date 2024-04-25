@@ -2,6 +2,7 @@ const localStorage = typeof window !== 'undefined' ?
 window.localStorage : {getItem: () => null, setItem: () => null, 
 removeItem: () => null};
 const tokenName = 'atk';
+const userName = 'admin';
 
 const getSessionToken = () => {
     return localStorage?.getItem(tokenName) ?? null;
@@ -19,17 +20,17 @@ const setSessionToken = token => {
 }
 
 const setUser = user => {
-    localStorage?.setItem('user', JSON.stringify(user))
+    localStorage?.setItem(userName, JSON.stringify(user))
 }
 
 const removeSessionToken = () => {
     localStorage?.removeItem(tokenName);
-    localStorage?.removeItem('user');
+    localStorage?.removeItem(userName);
 }
 
 const getUser = () => {
     return {
-        ...JSON.parse(localStorage?.getItem('user') ?? '{}')
+        ...JSON.parse(localStorage?.getItem(userName) ?? '{}')
     }
 }
 

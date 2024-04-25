@@ -10,6 +10,7 @@ export function ProductListView() {
     const { ProductService } = Services;
 
     const tableAttributes = {
+        '#': {},
         'nom': {},
 		'slug': {},
 		'prix': {},
@@ -56,7 +57,13 @@ export function ProductListView() {
             const {products} = await ProductService.getAll(
                 {page: page}, abortController.signal);
 
-            setProducts(products.data);
+            const productData = products.data.map((product, index) => {
+                return {
+                    '#': (products.data.length * (page - 1)) + (index + 1),
+                    ...product
+                }
+            })
+            setProducts(productData);
             setPageLength(products.last_page);
         } catch (error) {
             console.log(error);

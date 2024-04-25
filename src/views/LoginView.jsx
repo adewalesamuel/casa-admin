@@ -4,7 +4,7 @@ import { Components } from "../components";
 import { Services } from "../services";
 import { Utils } from "../utils";
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.jpeg';
 
 export function LoginView() {
     const abortController = new AbortController();
