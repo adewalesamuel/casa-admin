@@ -9,14 +9,25 @@ export const useProduct = () => {
 	const [prix, setPrix] = useState('');
 	const [type_paiement, setType_paiement] = useState('');
 	const [type, setType] = useState('');
-	const [display_img_url_list, setDisplay_img_url_list] = useState('');
-	const [images_url_list, setImages_url_list] = useState('');
+	const [display_img_url_list, setDisplay_img_url_list] = useState([]);
+	const [images_url_list, setImages_url_list] = useState([]);
 	const [category_id, setCategory_id] = useState('');
 	const [municipality_id, setMunicipality_id] = useState('');
 	const [user_id, setUser_id] = useState('');
 	
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
+
+    const handleImageChange = (display_img_url, img_url) => {
+    	const display_img_url_listCopy = [...display_img_url_list];
+    	const images_url_listCopy = [...display_img_url_list];
+
+    	display_img_url_listCopy.push(display_img_url);
+    	images_url_listCopy.push(img_url);
+
+    	setDisplay_img_url_list(display_img_url_listCopy);
+    	setImages_url_list(images_url_listCopy);
+    }
 
     const getProduct = (productId, signal) => {        
         return Services.ProductService.getById(productId, signal)
@@ -77,8 +88,8 @@ export const useProduct = () => {
 		setPrix(product.prix ?? '');
 		setType_paiement(product.type_paiement ?? '');
 		setType(product.type ?? '');
-		setDisplay_img_url_list(product.display_img_url_list ?? '');
-		setImages_url_list(product.images_url_list ?? '');
+		setDisplay_img_url_list(product.display_img_url_list ?? []);
+		setImages_url_list(product.images_url_list ?? []);
 		setCategory_id(product.category_id ?? '');
 		setMunicipality_id(product.municipality_id ?? '');
 		setUser_id(product.user_id ?? '');
@@ -92,8 +103,8 @@ export const useProduct = () => {
 		setPrix('');
 		setType_paiement('');
 		setType('');
-		setDisplay_img_url_list('');
-		setImages_url_list('');
+		setDisplay_img_url_list([]);
+		setImages_url_list([]);
 		setCategory_id('');
 		setMunicipality_id('');
 		setUser_id('');
@@ -136,6 +147,8 @@ export const useProduct = () => {
         updateProduct,
         deleteProduct,
         fillProduct,
-        emptyProduct
+        emptyProduct,
+
+        handleImageChange
     };
 }

@@ -19,15 +19,6 @@ export function FeatureForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='slug'>{_('slug')}</label>
-                        <input className='form-control' type='text' id='slug' name='slug' 
-                        placeholder={_('slug')} value={props.useFeature.slug ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useFeature.setSlug(e.target.value) ?? null} />
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
                         <label htmlFor='icon_img_url'>{_('icon_img_url')}</label>
                         <input className='form-control ' type='file' id='icon_img_url' name='icon_img_url' 
                         placeholder={_('icon_img_url')}

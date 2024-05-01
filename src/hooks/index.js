@@ -12,6 +12,7 @@ import { useFeatureProduct } from './useFeatureProduct';
 import { useComment } from './useComment';
 import { useFavorite } from './useFavorite';
 import { usePromoCode } from './usePromoCode';
+import { useFile } from './useFile';
 
 export const Hooks = {
     usePermission,
@@ -28,5 +29,5 @@ export const Hooks = {
 	useComment,
 	useFavorite,
 	usePromoCode,
-	
+	useFile	
 }

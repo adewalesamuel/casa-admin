@@ -77,8 +77,8 @@ export function ProductCreateView() {
             <Components.ProductForm useProduct={useProduct}
             categories={categories} setCategorys={setCategorys}
 			municipalities={municipalities} setMunicipalitys={setMunicipalitys}
-			users={users} setUsers={setUsers}
-			isDisabled={useProduct.isDisabled} handleFormSubmit={handleFormSubmit}/>
+			users={users} setUsers={setUsers}isDisabled={useProduct.isDisabled} 
+            handleFormSubmit={handleFormSubmit}/>
         </>
     )
 }

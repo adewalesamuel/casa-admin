@@ -20,6 +20,7 @@ import { Spinner } from './Spinner';
 import { Table } from './Table';
 import { ErrorMessages } from './ErrorMessages';
 import { Pagination } from './Pagination';
+import { ImageFileInput } from './ImageFileInput';
 
 export const Components = {
     PermissionForm,
@@ -43,6 +44,7 @@ export const Components = {
 	Spinner,
 	Table,
 	ErrorMessages,
-	Pagination
+	Pagination,
+	ImageFileInput	
 	
 }

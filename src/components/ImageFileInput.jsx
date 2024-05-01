@@ -1,4 +1,4 @@
-import imgPlaceholder from '../app-assets/images/placeholder.jpg';
+import imgPlaceholder from '../assets/images/placeholder.webp';
 
 export function ImageFileInput(props) {
 

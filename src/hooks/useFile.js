@@ -1,31 +1,45 @@
 import { useState } from 'react';
 import { Services } from '../services';
 
-export const useFile = () => {
+export const useFile = (type) => {
 	const abortController = new AbortController();
 
-	const [file_url, setFile_url] = useState('');
-	const [errorMessage, setErrorMessage] = useState('');
+	const [fileUrl, setFileUrl] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
+	const [errorMessages, setErrorMessages] = useState('');
 
 	const handleFileChange = async file => {
-		console.log('hello')
+		const store = (type == 'product') ? 
+		Services.FileService.product_store :
+		Services.FileService.store;
+
+		setIsLoading(true);
+
 		try {
 			const formData = new FormData();
 
-			formData.append('img_url', file);
+			formData.append('image', file);
 
-			const {img_url} = await Services.FileService.store(
+			const {image_url} = await store(
 				formData, abortController.signal);
 
-			setFile_url(img_url);
+			setFileUrl(image_url);
 		} catch(error) {
-			if (!('message' in error)) return;
-			setErrorMessage(error.message);
+			if ('message' in error) alert(error.message);
+			if (!('messages' in error)) return;
+
+			const messages = await error.messages;
+			
+			alert(messages.join(', '));
+		} finally {
+			setIsLoading(false);
 		}
 	}
 
 	return {
-		file_url,
-		errorMessage
+		fileUrl,
+		isLoading,
+		errorMessages,
+		handleFileChange
 	}
 }

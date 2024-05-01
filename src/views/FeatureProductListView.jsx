@@ -1,6 +1,6 @@
 //'use client'
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { Services } from '../services';
 import { Components } from '../components';
 
@@ -10,9 +10,10 @@ export function FeatureProductListView() {
 
     const { FeatureProductService } = Services;
 
+    const {id} = useParams();
+
     const tableAttributes = {
-        'feature_id': {},
-		'product_id': {},
+        'nom': {},
 		'quantite': {},
 		
     }
@@ -28,7 +29,7 @@ export function FeatureProductListView() {
 
     const handleEditClick = (e, data) => {
         e.preventDefault();
-        navigate(`/feature-products/${data.id}/edit`);
+        navigate(`/products/${id}/edit/features/${data.id}/edit`);
     }
     const handleDeleteClick = async (e, feature_product) => {
         e.preventDefault();
@@ -48,11 +49,17 @@ export function FeatureProductListView() {
 
     const init = useCallback(async () => {
         try {
-            const {feature_products} = await FeatureProductService.getAll(
-                {page: page}, abortController.signal);
+            const {features} = await FeatureProductService
+            .getByProductId(id, abortController.signal);
+            const featuresCopy = features.map(feature => {
+                return {
+                    id: feature.pivot.id,
+                    nom: feature.nom,
+                    quantite: feature.pivot.quantite
+                }
+            });
 
-            setFeatureProducts(feature_products.data);
-            setPageLength(feature_products.last_page);
+            setFeatureProducts(featuresCopy);
         } catch (error) {
             console.log(error);
         } finally {
@@ -76,9 +83,9 @@ export function FeatureProductListView() {
 
     return (
         <>
-            <h6>Liste FeatureProducts</h6>
+            <h4>Liste FeatureProducts</h4>
             <Components.Loader isLoading={isLoading}>
-                <Link className='btn btn-info' to='/feature-products/create'>
+                <Link className='btn btn-info' to={`/products/${id}/edit/features/create`}>
                     <i className='icon ion-plus'></i> Créer feature_product
                 </Link>
                 <Components.Table controllers={{handleEditClick, handleDeleteClick}} 

@@ -36,10 +36,10 @@ export function MainRoutes() {
                 <Route path='features/:id/edit' element={<Views.FeatureEditView />}/>
                 <Route path='products' element={<Views.ProductListView />}/>
                 <Route path='products/create' element={<Views.ProductCreateView />}/>
-                <Route path='products/:id/edit' element={<Views.ProductEditView />}/>
-                <Route path='feature-products' element={<Views.FeatureProductListView />}/>
-                <Route path='feature-products/create' element={<Views.FeatureProductCreateView />}/>
-                <Route path='feature-products/:id/edit' element={<Views.FeatureProductEditView />}/>
+                <Route path='products/:id/edit/*' element={<Views.ProductEditView />}/>
+                <Route path='features' element={<Views.FeatureListView />}/>
+                <Route path='features/create' element={<Views.FeatureCreateView />}/>
+                <Route path='features/:id/edit' element={<Views.FeatureEditView />}/>
                 <Route path='comments' element={<Views.CommentListView />}/>
                 <Route path='comments/create' element={<Views.CommentCreateView />}/>
                 <Route path='comments/:id/edit' element={<Views.CommentEditView />}/>

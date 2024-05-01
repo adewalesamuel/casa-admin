@@ -1,5 +1,7 @@
 //'use client'
 import { useCallback, useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import  { Views } from '../views';
 import { Components } from '../components';
 import { Hooks } from '../hooks';
 import { useParams } from 'react-router-dom';
@@ -7,6 +9,8 @@ import { Services } from '../services';
 
 export function ProductEditView() {
     let abortController = new AbortController();
+
+    const tableActions = ['edit', 'delete'];
 
     const {id} = useParams();
 
@@ -80,6 +84,15 @@ export function ProductEditView() {
 			municipalities={municipalities} setMunicipalities={setMunicipalities}
 			users={users} setUsers={setUsers}
 			isDisabled={useProduct.isDisabled} handleFormSubmit={handleFormSubmit}/>
+            <div className="row mt-4">
+                <div className="col-12 col-lg-8 col-xl-6">
+                    <Routes>
+                        <Route path='' element={<Views.FeatureProductListView />}/>
+                        <Route path='features/create' element={<Views.FeatureProductCreateView />}/>
+                        <Route path='features/:featureId/edit' element={<Views.FeatureProductEditView />}/>
+                    </Routes>    
+                </div>
+            </div>
         </>
     )
 }

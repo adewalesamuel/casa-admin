@@ -1,22 +1,67 @@
 //'use client'
+import { useEffect } from 'react';
+import * as Icons from 'react-feather';
+import { Components } from '../../components';
 import { Utils } from '../../utils';
+import { Hooks } from '../../hooks';
 
 export function ProductForm(props) {
     const {_} = Utils.String;
+
+    const useFile = Hooks.useFile('product');
+
+    const handleDeleteClick = index => {
+        const display_img_url_listCopy = [...props.useProduct.display_img_url_list];
+        const images_url_listCopy = [...props.useProduct.display_img_url_list];
+
+        display_img_url_listCopy.splice(index, 1);
+        images_url_listCopy.splice(index, 1);
+
+        props.useProduct.setDisplay_img_url_list(display_img_url_listCopy);
+        props.useProduct.setImages_url_list(images_url_listCopy);
+    }
+
+    useEffect(() => {
+        if (useFile.fileUrl.length == 0) return;
+
+        props.useProduct.handleImageChange(
+            useFile.fileUrl.display_img_url,
+            useFile.fileUrl.img_url);
+    }, [useFile.fileUrl])
 
     return (
         <form className="p-3 col-12 bg-white rounded" 
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col'>
-                    <div className='col-12'>
-                        <div className='form-group'>
-                            <label htmlFor='display_img_url_list'>{_('display_img_url_list')}</label>
-                            <input className='form-control' type='text' id='display_img_url_list' name='display_img_url_list' 
-                            placeholder={_('display_img_url_list')} value={props.useProduct.display_img_url_list ?? ''}
-                            disabled={props.isDisabled} onChange={ e => 
-                                props.useProduct.setDisplay_img_url_list(e.target.value) ?? null} />
+                    <div className='col-12 mb-3'>
+                        <div className="row justify-content-start mb-2">
+                            {props.useProduct.images_url_list.map((image_url, index) => {
+                                return (
+                                        <div className="col-6 col-md-4 mb-4 position-relative" key={index}>
+                                            <Icons.Trash2 className="bg-danger text-white rounded-pill p-1 
+                                            position-absolute" size={24} role='button' 
+                                            onClick={() => handleDeleteClick(index)}/>
+
+                                            <img src={image_url} className='w-100 rounded'
+                                            style={{height: "7rem", objectFit:"cover"}}/>
+                                        </div>
+                                    )
+                            })}
                         </div>
+                        <button className="btn btn-outline-info position-relative" 
+                        type="button">
+                            <span className="mr-2">Ajouter une image</span>
+                            {useFile.isLoading &&  <Components.Spinner size={20}/>}
+                            {!useFile.isLoading && 
+                                <Icons.Plus className="rounded-pill bg-info 
+                                text-white p-1" size={24}/>  
+                            }
+                            <input type="file" className="position-absolute w-100 
+                            h-100" style={{top:0, left:0, opacity: 0}} role='button'
+                            onChange={e => useFile.handleFileChange(e.target.files[0])}
+                            disabled={useFile.isLoading}/>
+                        </button>
                     </div>
                     <div className='col-12'>
                         <div className='form-group'>
@@ -41,7 +86,7 @@ export function ProductForm(props) {
                     <div className='col-12'>
                         <div className='form-group'>
                             <label htmlFor='prix'>{_('prix')}</label>
-                            <input className='form-control' type='text' id='prix' name='prix' 
+                            <input className='form-control' type='number' id='prix' name='prix' 
                             placeholder={_('prix')} value={props.useProduct.prix ?? ''}
                             disabled={props.isDisabled} onChange={ e => 
                                 props.useProduct.setPrix(e.target.value) ?? null} />
@@ -69,8 +114,8 @@ export function ProductForm(props) {
                             value={props.useProduct.type ?? ''} disabled={props.isDisabled} 
                             onChange={ e => props.useProduct.setType(e.target.value) ?? null}>
                                 <option hidden>Choisissez une option</option>
-                                <option value='location'>location</option>
-                                <option value='achat'>achat</option>
+                                <option value='Location'>Location</option>
+                                <option value='Achat'>Achat</option>
                             </select>
                         </div>
                     </div>
@@ -79,7 +124,7 @@ export function ProductForm(props) {
                             <label htmlFor='category_id'>{_('category_id')}</label>
                             <select className='select2 form-control' id='category_id' name='category_id' 
                             value={props.useProduct.category_id ?? ''} disabled={props.isDisabled} 
-                            onChange={ e => props.useProduct.setCategory(e.target.value) ?? null}>
+                            onChange={ e => props.useProduct.setCategory_id(e.target.value) ?? null}>
                                 <option hidden>Choisissez une option</option>
                                 {
                                     props.categories.map((category, index) => {
@@ -96,7 +141,7 @@ export function ProductForm(props) {
                             <label htmlFor='municipality_id'>{_('municipality_id')}</label>
                             <select className='select2 form-control' id='municipality_id' name='municipality_id' 
                             value={props.useProduct.municipality_id ?? ''} disabled={props.isDisabled} 
-                            onChange={ e => props.useProduct.setMunicipality(e.target.value) ?? null}>
+                            onChange={ e => props.useProduct.setMunicipality_id(e.target.value) ?? null}>
                                 <option hidden>Choisissez une option</option>
                                 {
                                     props.municipalities.map((municipality, index) => {
@@ -113,7 +158,7 @@ export function ProductForm(props) {
                             <label htmlFor='user_id'>{_('user_id')}</label>
                             <select className='select2 form-control' id='user_id' name='user_id' 
                             value={props.useProduct.user_id ?? ''} disabled={props.isDisabled} 
-                            onChange={ e => props.useProduct.setUser(e.target.value) ?? null}>
+                            onChange={ e => props.useProduct.setUser_id(e.target.value) ?? null}>
                                 <option hidden>Choisissez une option</option>
                                 {
                                     props.users.map((user, index) => {

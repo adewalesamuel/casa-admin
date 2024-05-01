@@ -12,7 +12,6 @@ export function FeatureEditView() {
 
     const useFeature = Hooks.useFeature();
 
-    
     const [errorMessages, setErrorMessages] = useState([]);
 
     const handleFormSubmit = async e => {
