@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import * as Icons from 'react-feather';
 export function MainMenu() {
     return (
         <div className="vertical-menu">
@@ -9,67 +9,67 @@ export function MainMenu() {
                         <li className="menu-title">Menu</li>
                         <li>
                             <NavLink exact="true" to="/">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Grid size={18} className="mr-2"/>
                                 <span>Tableau de bord</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/users">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Users size={18} className="mr-2"/>
                                 <span>Utilisateurs</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/products">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Home size={18} className="mr-2"/>
                                 <span>Publications</span>
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink exact="true" to="/features">
+                                <Icons.List size={18} className="mr-2"/>
+                                <span>Charactéristiques</span>
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink exact="true" to="/categories">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Copy size={18} className="mr-2"/>
                                 <span>Categories</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink exact="true" to="/features">
-                                <i className="mdi mdi-view-dashboard"></i>
-                                <span>Charactéristique</span>
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink exact="true" to="/regions">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Flag size={18} className="mr-2"/>
                                 <span>Regions</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/cities">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Map size={18} className="mr-2"/>
                                 <span>Villes</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/municipalities">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.MapPin size={18} className="mr-2"/>
                                 <span>Quartiers</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/permissions">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Settings size={18} className="mr-2"/>
                                 <span>Permissions</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/roles">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.Shield size={18} className="mr-2"/>
                                 <span>Roles</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink exact="true" to="/admins">
-                                <i className="mdi mdi-view-dashboard"></i>
+                                <Icons.UserPlus size={18} className="mr-2"/>
                                 <span>Admins</span>
                             </NavLink>
                         </li>

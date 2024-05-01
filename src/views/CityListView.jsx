@@ -49,8 +49,14 @@ export function CityListView() {
         try {
             const {cities} = await CityService.getAll(
                 {page: page}, abortController.signal);
+            const cityData = cities.data.map(city => {
+                return {
+                    ...city,
+                    region_id: city?.region?.nom ?? ""
+                }
+            });
 
-            setCitys(cities.data);
+            setCitys(cityData);
             setPageLength(cities.last_page);
         } catch (error) {
             console.log(error);

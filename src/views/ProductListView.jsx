@@ -12,7 +12,6 @@ export function ProductListView() {
     const tableAttributes = {
         '#': {},
         'nom': {},
-		'slug': {},
 		'prix': {},
 		'type_paiement': {},
 		'type': {},
@@ -59,7 +58,10 @@ export function ProductListView() {
             const productData = products.data.map((product, index) => {
                 return {
                     '#': (products.data.length * (page - 1)) + (index + 1),
-                    ...product
+                    ...product,
+                    category_id: product?.category?.nom ?? "",
+                    municipality_id: product?.municipality?.nom ?? "",
+                    user_id: product?.user?.nom ?? "",
                 }
             })
             setProducts(productData);

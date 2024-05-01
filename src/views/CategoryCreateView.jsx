@@ -39,6 +39,7 @@ export function CategoryCreateView() {
 
     const init = useCallback(async () => {
         useCategory.setIsDisabled(true);
+        useCategory.setQuantite(1);
 
         try {
             const { categories } = await Services.CategoryService

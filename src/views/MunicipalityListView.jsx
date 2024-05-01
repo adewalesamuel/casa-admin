@@ -50,8 +50,14 @@ export function MunicipalityListView() {
         try {
             const {municipalities} = await MunicipalityService.getAll(
                 {page: page}, abortController.signal);
+            const municipalityData = municipalities.data.map(municipality => {
+                return {
+                    ...municipality,
+                    city_id: municipality?.city?.nom ?? ""
+                }
+            })
 
-            setMunicipalitys(municipalities.data);
+            setMunicipalitys(municipalityData);
             setPageLength(municipalities.last_page);
         } catch (error) {
             console.log(error);

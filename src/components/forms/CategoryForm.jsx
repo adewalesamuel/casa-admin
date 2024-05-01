@@ -1,4 +1,5 @@
 //'use client'
+import { Components } from '../../components';
 import { Utils } from '../../utils';
 
 export function CategoryForm(props) {
@@ -10,6 +11,20 @@ export function CategoryForm(props) {
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
+                        <label htmlFor='icon_img_url'>{_('icon_img_url')}</label>
+                        <Components.ImageFileInput img_url={props.useCategory.icon_img_url}
+                        setImg_url={props.useCategory.setIcon_img_url} />
+                    </div>
+                </div>
+                <div className='col-12'>
+                    <div className='form-group'>
+                        <label htmlFor='display_img_url'>{_('display_img_url')}</label>
+                        <Components.ImageFileInput img_url={props.useCategory.display_img_url}
+                        setImg_url={props.useCategory.setDisplay_img_url} />
+                    </div>
+                </div>
+                <div className='col-12'>
+                    <div className='form-group'>
                         <label htmlFor='nom'>{_('nom')}</label>
                         <input className='form-control' type='text' id='nom' name='nom' 
                         placeholder={_('nom')} value={props.useCategory.nom ?? ''}
@@ -19,38 +34,11 @@ export function CategoryForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='slug'>{_('slug')}</label>
-                        <input className='form-control' type='text' id='slug' name='slug' 
-                        placeholder={_('slug')} value={props.useCategory.slug ?? ''}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setSlug(e.target.value) ?? null} />
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
                         <label htmlFor='description'>{_('description')}</label>
                         <textarea className='form-control' rows={4}  id='description' name='description' 
                         placeholder={_('description')} value={props.useCategory.description ?? ''}
                         disabled={props.isDisabled} onChange={ e => 
                             props.useCategory.setDescription(e.target.value) ?? null} />
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='icon_img_url'>{_('icon_img_url')}</label>
-                        <input className='form-control ' type='file' id='icon_img_url' name='icon_img_url' 
-                        placeholder={_('icon_img_url')}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setIcon_img_url(e.target.value) ?? null} />
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='display_img_url'>{_('display_img_url')}</label>
-                        <input className='form-control ' type='file' id='display_img_url' name='display_img_url' 
-                        placeholder={_('display_img_url')}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useCategory.setDisplay_img_url(e.target.value) ?? null} />
                     </div>
                 </div>
 				<div className='col-12'>

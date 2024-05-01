@@ -1,4 +1,5 @@
 //'use client'
+import { Components } from '../../components';
 import { Utils } from '../../utils';
 
 export function FeatureForm(props) {
@@ -20,19 +21,15 @@ export function FeatureForm(props) {
 				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='icon_img_url'>{_('icon_img_url')}</label>
-                        <input className='form-control ' type='file' id='icon_img_url' name='icon_img_url' 
-                        placeholder={_('icon_img_url')}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useFeature.setIcon_img_url(e.target.value) ?? null} />
+                        <Components.ImageFileInput img_url={props.useFeature.icon_img_url}
+                        setImg_url={props.useFeature.setIcon_img_url} />
                     </div>
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='display_img_url'>{_('display_img_url')}</label>
-                        <input className='form-control ' type='file' id='display_img_url' name='display_img_url' 
-                        placeholder={_('display_img_url')}
-                        disabled={props.isDisabled} onChange={ e => 
-                            props.useFeature.setDisplay_img_url(e.target.value) ?? null} />
+                        <Components.ImageFileInput img_url={props.useFeature.display_img_url}
+                        setImg_url={props.useFeature.setDisplay_img_url} />
                     </div>
                 </div>
 				
